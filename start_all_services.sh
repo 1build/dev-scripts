@@ -37,21 +37,21 @@ tmux new-session -d -s dev-services -n "Services"
 
 # Create a 2x2 grid layout for the services
 # Start with Flatbed in the top-left pane
-tmux send-keys -t dev-services "echo 'Starting Flatbed...' && $SCRIPT_DIR/start_flatbed.sh" Enter
+tmux send-keys -t dev-services "cd ~/handoff/flatbed && echo 'Starting Flatbed...' && $SCRIPT_DIR/start_flatbed.sh" Enter
 
 # Create top-right pane for LangGraph
 tmux split-window -h
-tmux send-keys "echo 'Starting LangGraph...' && $SCRIPT_DIR/start_langgraph.sh" Enter
+tmux send-keys "cd ~/handoff/langgraph && echo 'Starting LangGraph...' && $SCRIPT_DIR/start_langgraph.sh" Enter
 
 # Create bottom-left pane for Cement Tilt (split from top-left)
 tmux select-pane -t 0
 tmux split-window -v
-tmux send-keys "echo 'Starting Cement Tilt...' && $SCRIPT_DIR/start_cement_tilt.sh" Enter
+tmux send-keys "cd ~/handoff/cement && echo 'Starting Cement Tilt...' && $SCRIPT_DIR/start_cement_tilt.sh" Enter
 
 # Create bottom-right pane for Cement Dev (split from top-right)
 tmux select-pane -t 1
 tmux split-window -v
-tmux send-keys "echo 'Waiting for other services to initialize...' && sleep 10 && echo 'Starting Cement Dev (last service)...' && $SCRIPT_DIR/start_cement_dev.sh" Enter
+tmux send-keys "cd ~/handoff/cement && echo 'Waiting for other services to initialize...' && sleep 10 && echo 'Starting Cement Dev (last service)...' && NODE_NO_READLINE=1 $SCRIPT_DIR/start_cement_dev.sh" Enter
 
 # Attach to the tmux session
 tmux attach-session -t dev-services
