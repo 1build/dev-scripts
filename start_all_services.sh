@@ -16,12 +16,18 @@ check_script "$SCRIPT_DIR/start_cement_tilt.sh"
 check_script "$SCRIPT_DIR/start_cement_dev.sh"
 check_script "$SCRIPT_DIR/start_flatbed.sh"
 check_script "$SCRIPT_DIR/start_langgraph.sh"
+check_script "$SCRIPT_DIR/setup_assistants.sh"
+check_script "$SCRIPT_DIR/mk_est_assistant.sh"
+check_script "$SCRIPT_DIR/mk_org_assistant.sh"
 
 # Make sure all scripts are executable
 chmod +x "$SCRIPT_DIR/start_cement_tilt.sh"
 chmod +x "$SCRIPT_DIR/start_cement_dev.sh"
 chmod +x "$SCRIPT_DIR/start_flatbed.sh"
 chmod +x "$SCRIPT_DIR/start_langgraph.sh"
+chmod +x "$SCRIPT_DIR/setup_assistants.sh"
+chmod +x "$SCRIPT_DIR/mk_est_assistant.sh"
+chmod +x "$SCRIPT_DIR/mk_org_assistant.sh"
 
 # Check if tmux is installed
 if ! command -v tmux &> /dev/null; then

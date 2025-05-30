@@ -69,10 +69,44 @@ Starts the LangGraph service:
 - Sets Python version to 3.13
 - Creates and activates a virtual environment if needed
 - Runs the LangGraph development server
+- Automatically sets up assistants after LangGraph starts
 
 ```bash
 ./start_langgraph.sh
 ```
+
+#### `setup_assistants.sh`
+
+Sets up LangGraph assistants after LangGraph starts:
+
+- Waits for LangGraph to be ready
+- Creates estimate assistants with IDs:
+  - `3834d1b5-238a-4cdf-88f9-0e11e3b4ee45`
+  - `ee691075-582e-4871-b84f-0d9be5c9efd5`
+- Creates org assistants with IDs:
+  - `9adc14f4-26cc-44ca-af32-bc5c96dc8603`
+  - `ee691075-582e-4871-b84f-0d9be5c9efd5`
+
+This script is automatically called by `start_langgraph.sh` but can also be run manually:
+
+```bash
+# Make sure ACCESS_TOKEN environment variable is set
+export ACCESS_TOKEN="your_access_token_here"
+./setup_assistants.sh
+```
+
+#### `mk_est_assistant.sh` and `mk_org_assistant.sh`
+
+Individual assistant creation scripts that can accept custom assistant IDs:
+
+```bash
+# Make sure ACCESS_TOKEN environment variable is set
+export ACCESS_TOKEN="your_access_token_here"
+./mk_est_assistant.sh [assistant_id]
+./mk_org_assistant.sh [assistant_id]
+```
+
+**Note**: All assistant scripts require the `ACCESS_TOKEN` environment variable to be set with your Handoff access token.
 
 ## Project Directory Structure
 

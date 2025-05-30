@@ -2,7 +2,7 @@
 
 # Step 1: Navigate to the project directory
 cd ~/handoff/langgraph || {
-    echo "Directory ~/handoff/flatbed does not exist."
+    echo "Directory ~/handoff/langgraph does not exist."
     exit 1
 }
 
@@ -20,5 +20,9 @@ fi
 # Step 5: Activate virtual environment
 source env/bin/activate
 
-# Step 6: Run the main script
+# Step 6: Start assistant setup in background and then run LangGraph
+# Run assistant setup in background after a delay
+(sleep 10 && /Users/fk/handoff/dev-server-scripts/setup_assistants.sh) &
+
+# Run the main script
 langgraph dev
