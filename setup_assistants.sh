@@ -52,3 +52,25 @@ echo "Creating org assistant with ID: b9b455fe-b3d7-5ee0-b7c9-ab30756644ed"
 "$SCRIPT_DIR/mk_org_assistant.sh" "b9b455fe-b3d7-5ee0-b7c9-ab30756644ed"
 
 echo "All assistants have been set up!"
+
+# --- PATCH step for each assistant ---
+echo "Patching all assistants with config..."
+
+ASSISTANT_IDS=(
+    "ee691075-582e-4871-b84f-0d9be5c9efd5"
+    "b9b455fe-b3d7-5ee0-b7c9-ab30756644ed"
+    "9adc14f4-26cc-44ca-af32-bc5c96dc8603"
+)
+
+for ID in "${ASSISTANT_IDS[@]}"; do
+    echo "Patching assistant $ID..."
+    curl "http://localhost:2024/assistants/$ID" \
+        --request PATCH \
+        --header 'Content-Type: application/json' \
+        --data '{
+          "config": {"configurable": {}}
+        }'
+    echo # newline for readability
+done
+
+echo "All assistants have been patched!"
