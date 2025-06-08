@@ -36,6 +36,9 @@ echo "Creating estimate assistant with ID: 3834d1b5-238a-4cdf-88f9-0e11e3b4ee45"
 echo "Creating estimate assistant with ID: ee691075-582e-4871-b84f-0d9be5c9efd5"
 "$SCRIPT_DIR/mk_est_assistant.sh" "ee691075-582e-4871-b84f-0d9be5c9efd5"
 
+echo "Creating estimate assistant with ID: b9b455fe-b3d7-5ee0-b7c9-ab30756644ed"
+"$SCRIPT_DIR/mk_est_assistant.sh" "b9b455fe-b3d7-5ee0-b7c9-ab30756644ed"
+
 echo "Creating org assistants..."
 
 # Run mk_org_assistant.sh with the two required assistant IDs
@@ -44,5 +47,8 @@ echo "Creating org assistant with ID: 9adc14f4-26cc-44ca-af32-bc5c96dc8603"
 
 echo "Creating org assistant with ID: ee691075-582e-4871-b84f-0d9be5c9efd5"
 "$SCRIPT_DIR/mk_org_assistant.sh" "ee691075-582e-4871-b84f-0d9be5c9efd5"
+
+echo "Creating org assistant with ID: b9b455fe-b3d7-5ee0-b7c9-ab30756644ed"
+"$SCRIPT_DIR/mk_org_assistant.sh" "b9b455fe-b3d7-5ee0-b7c9-ab30756644ed"
 
 echo "All assistants have been set up!"
