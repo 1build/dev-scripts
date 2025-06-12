@@ -8,7 +8,7 @@ cd ~/handoff/cement || {
 
 # Step 2: Pull latest changes
 git pull
-npm install
+npm install --include=dev
 
 # Step 3: Generate resources and run migrations
 echo "Generating resources and running migrations..."
